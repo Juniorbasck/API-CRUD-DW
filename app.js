@@ -1,15 +1,9 @@
-import express, { Router } from "express";
+import express from "express";
+import connectData from "./config/MongoDB.js";
 
-dotenv.config();
-connectDatabase();
+connectData();
 const app = express();
 
-app.use(bodyParser.json())
-
-//API     
-
-app.use(errorHandler);
-
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.listen(PORT, console.log(`Server run in port ${PORT}`));

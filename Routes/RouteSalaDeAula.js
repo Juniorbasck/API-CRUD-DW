@@ -4,12 +4,11 @@ const express = require('express');
 const router = express.Router(); 
 const SalaDeAula = require('../Models/SalaDeAula'); 
 
-router.post('/salasdeaula', async (req, res) => {
+router.post('/addsalasaula', async (req, res) => {
     try {
       
       const novaSala = new SalaDeAula(req.body);
       await novaSala.save();
-  
      
       res.status(201).json(novaSala);
     } catch (error) {
@@ -17,7 +16,7 @@ router.post('/salasdeaula', async (req, res) => {
     }
   });
 
-router.get('/salasdeaula', async (req, res) => {
+router.get('/getsalasaula', async (req, res) => {
     try {
       
       const salas = await SalaDeAula.find();
@@ -42,5 +41,6 @@ router.get('/salasdeaula', async (req, res) => {
       res.status(500).json({ error: 'Erro ao buscar sala de aula por ID' });
     }
   });
+  
   
   module.exports = router; 
